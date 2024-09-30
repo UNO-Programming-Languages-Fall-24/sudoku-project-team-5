@@ -7,12 +7,11 @@
 % Your implementation please...
 
 cell(1..4, 1..4).
-{cell(X, Y, N) : N=1..4} = 1 :- cell(X, Y).
+{sudoku(X, Y, N) : N=1..4} = 1 :- cell(X, Y).
 
-:- cell(X, Y, N), cell(X, Z, N), Y != Z.
-:- cell(X, Y, N), cell(Z, Y, N), X != Z.
+:- sudoku(X, Y, N), sudoku(X, Z, N), Y != Z.
+:- sudoku(X, Y, N), sudoku(Z, Y, N), X != Z.
 
-cell(X, Y, N) :- initial(X, Y, N).
+sudoku(X, Y, N) :- initial(X, Y, N).
 
-% #show cell/3.
 #show sudoku/3.
