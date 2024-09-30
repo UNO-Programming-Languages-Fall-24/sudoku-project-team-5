@@ -14,6 +14,8 @@ subgrid(X, Y, 1+(((X-1)/2)*2+(Y-1)/2)) :- cell(X, Y).
 :- sudoku(X, Y, N), sudoku(X, Z, N), Y != Z.
 :- sudoku(X, Y, N), sudoku(Z, Y, N), X != Z.
 
+:- subgrid(X1, Y1, G), subgrid(X2, Y2, G), sudoku(X1, Y1, N1), sudoku(X2, Y2, N2), X1 != X2, Y1 != Y2, N1 = N2.
+
 sudoku(X, Y, N) :- initial(X, Y, N).
 
 #show sudoku/3.
