@@ -6,10 +6,10 @@
 
 % Your implementation please...
 
-cell(1..4, 1..4).
-subgrid(X, Y, 1+(((X-1)/2)*2+(Y-1)/2)) :- cell(X, Y).
+cell(1..9, 1..9).
+subgrid(X, Y, 1+(((X-1)/3)*3+(Y-1)/3)) :- cell(X, Y).
 
-{sudoku(X, Y, N) : N=1..4} = 1 :- subgrid(X, Y, G).
+{sudoku(X, Y, N) : N=1..9} = 1 :- subgrid(X, Y, G).
 
 :- sudoku(X, Y, N), sudoku(X, Z, N), Y != Z.
 :- sudoku(X, Y, N), sudoku(Z, Y, N), X != Z.
