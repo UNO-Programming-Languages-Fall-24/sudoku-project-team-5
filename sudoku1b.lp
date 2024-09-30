@@ -7,7 +7,9 @@
 % Your implementation please...
 
 cell(1..4, 1..4).
-{sudoku(X, Y, N) : N=1..4} = 1 :- cell(X, Y).
+subgrid(X, Y, 1+(((X-1)/2)*2+(Y-1)/2)) :- cell(X, Y).
+
+{sudoku(X, Y, N) : N=1..4} = 1 :- subgrid(X, Y, G).
 
 :- sudoku(X, Y, N), sudoku(X, Z, N), Y != Z.
 :- sudoku(X, Y, N), sudoku(Z, Y, N), X != Z.
